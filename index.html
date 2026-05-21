@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Conflux</title>
+  <meta name="description" content="A maker's lab at the intersection of art and technology.">
+  <style>
+
+    /* ─── FONTS ──────────────────────────────────────────────── */
+    @font-face {
+      font-family: 'Gotham';
+      src: url('fonts/Gotham-Black.otf') format('opentype');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Gotham';
+      src: url('fonts/GothamBold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Gotham';
+      src: url('fonts/GothamMedium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Gotham';
+      src: url('fonts/GothamBook.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Gotham';
+      src: url('fonts/GothamLight.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --yellow-bg:     #FFFAEE;
+      --yellow-light:  #FFF4DD;
+      --yellow-mid:    #FDDC9C;
+      --yellow-warm:   #FCECCB;
+      --orange:        #F7931E;
+      --orange-deep:   #F05924;
+      --brown:         #BD4318;
+      --dark:          #111111;
+      --mid:           #555555;
+      --subtle:        #999999;
+      --border:        #E8E8E8;
+      --bg:            #FAFAFA;
+      --white:         #FFFFFF;
+      --max-w:         1200px;
+      --pad-x:         64px;
+      --pad-mobile:    24px;
+    }
+
+    /* ─── BASE ───────────────────────────────────────────────── */
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Gotham', system-ui, sans-serif;
+      font-weight: 400;
+      background: var(--bg);
+      color: var(--dark);
+      min-height: 100vh;
+    }
+
+    /* ─── NAV ────────────────────────────────────────────────── */
+    nav {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 36px var(--pad-x);
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-logo {
+      height: 30px;
+      width: auto;
+      display: block;
+    }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    .hero {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 32px var(--pad-x) 56px;
+      text-align: center;
+    }
+
+    .hero-text {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      color: var(--dark);
+      display: block;
+    }
+
+    /* ─── DIVIDER ─────────────────────────────────────────────── */
+    .divider {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+    }
+
+    .divider hr {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ─── PROJECTS ───────────────────────────────────────────── */
+    .projects {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 64px var(--pad-x) 96px;
+    }
+
+    .projects-header {
+      margin-bottom: 52px;
+      text-align: center;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      margin-bottom: 14px;
+    }
+
+    .projects-headline {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      color: var(--dark);
+    }
+
+    /* ─── GRID ───────────────────────────────────────────────── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    /* ─── APP CARD ────────────────────────────────────────────── */
+    .card {
+      background: var(--yellow-bg);
+      border: 1px solid var(--yellow-mid);
+      border-radius: 20px;
+      padding: 36px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .card-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--yellow-mid) 0%, var(--orange) 100%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 12px 40px rgba(247, 147, 30, 0.12);
+      transform: translateY(-3px);
+      border-color: var(--yellow-warm);
+    }
+
+    .card:hover .card-bar {
+      opacity: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brown);
+      background: var(--yellow-mid);
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+
+    .status-live {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #2A9D5C;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      background: #2A9D5C;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .card-name {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1;
+      margin-bottom: 12px;
+      color: var(--dark);
+    }
+
+    .card-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--mid);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 32px;
+    }
+
+    .card-cta {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s ease, gap 0.2s ease;
+    }
+
+    .card:hover .card-cta {
+      color: var(--orange-deep);
+      gap: 13px;
+    }
+
+    .card-cta svg {
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover .card-cta svg {
+      transform: translateX(2px);
+    }
+
+    /* ─── COMING SOON CARD ────────────────────────────────────── */
+    @keyframes dot-pulse {
+      0%, 80%, 100% { opacity: 0.15; transform: translateY(0); }
+      40%            { opacity: 0.7;  transform: translateY(-3px); }
+    }
+
+    .card-soon {
+      background: transparent;
+      border: 1.5px dashed #D8D8D8;
+      border-radius: 20px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 240px;
+      gap: 16px;
+    }
+
+    .soon-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #AAAAAA;
+    }
+
+    .soon-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .soon-dots span {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #CCCCCC;
+      animation: dot-pulse 1.5s ease-in-out infinite both;
+    }
+
+    .soon-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .soon-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 40px var(--pad-x);
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-credit {
+      font-size: 11px;
+      font-weight: 400;
+      color: #CCCCCC;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-credit a {
+      color: var(--subtle);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-credit a:hover {
+      color: var(--dark);
+    }
+
+    .footer-left {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--subtle);
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .dot-purple { background: #92298D; }
+    .dot-orange { background: var(--orange); }
+
+    .footer-tag {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #CCCCCC;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav        { padding: 28px var(--pad-mobile); }
+      .hero      { padding: 28px var(--pad-mobile) 48px; }
+      .divider   { padding: 0 var(--pad-mobile); }
+      .projects  { padding: 52px var(--pad-mobile) 72px; }
+      footer     { padding: 32px var(--pad-mobile); flex-direction: column; gap: 16px; text-align: center; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <img src="assets/logo.png" alt="Creative Conflux" class="nav-logo">
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="hero-text">A maker's lab at the intersection of art and technology.</span>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider"><hr></div>
+
+  <!-- PROJECTS -->
+  <section class="projects">
+    <div class="projects-header">
+      <p class="section-label">Things I built. Yours to use.</p>
+    </div>
+
+    <div class="grid">
+
+      <!-- Jot-It -->
+      <a class="card" href="https://jot-it-xi.vercel.app/" target="_blank" rel="noopener noreferrer">
+        <div class="card-bar"></div>
+        <div class="card-meta">
+          <span class="tag">Personal Journal</span>
+          <span class="status-live"><i class="live-dot"></i>Live</span>
+        </div>
+        <h2 class="card-name">Jot-It</h2>
+        <p class="card-desc">Your feelings deserve space. Jot, reflect, and grow at your own pace.</p>
+        <span class="card-cta">
+          Use App
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <!-- Coming soon -->
+      <div class="card-soon">
+        <span class="soon-label">More coming</span>
+        <div class="soon-dots">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-credit">Made with ♥ by <a href="https://chaithra.design" target="_blank" rel="noopener noreferrer">Chaithra</a></span>
+  </footer>
+
+
+</body>
+</html>
