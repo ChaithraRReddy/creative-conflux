@@ -44,6 +44,13 @@
       font-style: normal;
       font-display: swap;
     }
+    @font-face {
+      font-family: 'Gotham Rounded';
+      src: url('fonts/GothamRnd-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
 
     /* ─── RESET ──────────────────────────────────────────────── */
     *, *::before, *::after {
@@ -110,9 +117,9 @@
     }
 
     .hero-text {
-      font-size: clamp(20px, 4vw, 52px);
-      font-weight: 300;
-      letter-spacing: -0.025em;
+      font-family: 'Gotham Rounded', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
       line-height: 1.05;
       color: var(--dark);
       display: block;
