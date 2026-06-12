@@ -287,6 +287,38 @@
       transform: translateX(2px);
     }
 
+    /* ─── GREEN CARD (Check.it) ──────────────────────────────── */
+    .card-green {
+      background: #F0FBF6;
+      border-color: #A8EDCC;
+    }
+
+    .card-green:hover {
+      box-shadow: 0 12px 40px rgba(62, 201, 138, 0.12);
+      border-color: #C5F0DC;
+    }
+
+    .card-green .card-bar {
+      background: linear-gradient(90deg, #0F3F27 0%, #3EC98A 100%);
+    }
+
+    .card-green .tag {
+      background: #C5F0DC;
+      color: #0F3F27;
+    }
+
+    .card-green .live-dot {
+      background: #3EC98A;
+    }
+
+    .card-green .status-live {
+      color: #0F3F27;
+    }
+
+    .card-green:hover .card-cta {
+      color: #0F3F27;
+    }
+
     /* ─── COMING SOON CARD ────────────────────────────────────── */
     @keyframes dot-pulse {
       0%, 80%, 100% { opacity: 0.15; transform: translateY(0); }
@@ -432,6 +464,23 @@
         </div>
         <h2 class="card-name">Jot-It</h2>
         <p class="card-desc">Your feelings deserve space. Jot, reflect, and grow at your own pace.</p>
+        <span class="card-cta">
+          Use App
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <!-- Check.it -->
+      <a class="card card-green" href="https://check-it-finance.vercel.app/" target="_blank" rel="noopener noreferrer">
+        <div class="card-bar"></div>
+        <div class="card-meta">
+          <span class="tag">Finance</span>
+          <span class="status-live"><i class="live-dot"></i>Live</span>
+        </div>
+        <h2 class="card-name">Check.it</h2>
+        <p class="card-desc">An honest gut-check before you spend. Enter your real numbers, get a straight verdict.</p>
         <span class="card-cta">
           Use App
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

@@ -1,0 +1,11 @@
+<svg width="200" height="64" viewBox="0 0 200 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Mark -->
+  <path d="M32 6 A26 26 0 1 1 9 38" stroke="#0F3F27" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+  <circle cx="32" cy="6" r="5" fill="#3EC98A" stroke="#0F3F27" stroke-width="1.8"/>
+  <circle cx="9" cy="38" r="5" fill="#3EC98A" stroke="#0F3F27" stroke-width="1.8"/>
+  <line x1="9" y1="38" x2="20" y2="27" stroke="#3EC98A" stroke-width="2.8" stroke-linecap="round"/>
+  <!-- Rupee glyph: Inter 300 -->
+  <text x="32" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-weight="300" font-size="22" fill="#0F3F27">₹</text>
+  <!-- Wordmark: Fraunces 600 -->
+  <text x="72" y="42" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="32" letter-spacing="-0.02em" fill="#0F3F27">Check<tspan fill="#3EC98A">.</tspan>it</text>
+</svg>
