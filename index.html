@@ -244,6 +244,25 @@
       flex-shrink: 0;
     }
 
+    .status-wip {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #C47F00;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .wip-dot {
+      width: 6px;
+      height: 6px;
+      background: #F7931E;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
     .card-name {
       font-size: 32px;
       font-weight: 700;
@@ -455,15 +474,15 @@
 
     <div class="grid">
 
-      <!-- Jot-It -->
-      <a class="card" href="https://jot-it-xi.vercel.app/" target="_blank" rel="noopener noreferrer">
+      <!-- Check.it -->
+      <a class="card card-green" href="https://check-it-finance.vercel.app/" target="_blank" rel="noopener noreferrer">
         <div class="card-bar"></div>
         <div class="card-meta">
-          <span class="tag">Personal Journal</span>
+          <span class="tag">Finance</span>
           <span class="status-live"><i class="live-dot"></i>Live</span>
         </div>
-        <h2 class="card-name">Jot-It</h2>
-        <p class="card-desc">Your feelings deserve space. Jot, reflect, and grow at your own pace.</p>
+        <h2 class="card-name">Check<span style="color:#3EC98A">.</span>it</h2>
+        <p class="card-desc">An honest gut-check before you spend. Enter your real numbers, get a straight verdict.</p>
         <span class="card-cta">
           Use App
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -472,15 +491,15 @@
         </span>
       </a>
 
-      <!-- Check.it -->
-      <a class="card card-green" href="https://check-it-finance.vercel.app/" target="_blank" rel="noopener noreferrer">
+      <!-- Jot-It -->
+      <a class="card" href="https://jot-it-xi.vercel.app/" target="_blank" rel="noopener noreferrer">
         <div class="card-bar"></div>
         <div class="card-meta">
-          <span class="tag">Finance</span>
-          <span class="status-live"><i class="live-dot"></i>Live</span>
+          <span class="tag">Personal Journal</span>
+          <span class="status-wip"><i class="wip-dot"></i>WIP</span>
         </div>
-        <h2 class="card-name">Check.it</h2>
-        <p class="card-desc">An honest gut-check before you spend. Enter your real numbers, get a straight verdict.</p>
+        <h2 class="card-name">Jot-It</h2>
+        <p class="card-desc">Your feelings deserve space. Jot, reflect, and grow at your own pace.</p>
         <span class="card-cta">
           Use App
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
