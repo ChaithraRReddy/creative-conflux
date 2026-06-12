@@ -228,9 +228,12 @@
     .status-live {
       font-size: 10px;
       font-weight: 500;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #2A9D5C;
+      color: #1A7A47;
+      background: #C5F0DC;
+      padding: 5px 12px;
+      border-radius: 100px;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -247,9 +250,12 @@
     .status-wip {
       font-size: 10px;
       font-weight: 500;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #C47F00;
+      color: #9A5C00;
+      background: var(--yellow-mid);
+      padding: 5px 12px;
+      border-radius: 100px;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -258,7 +264,7 @@
     .wip-dot {
       width: 6px;
       height: 6px;
-      background: #F7931E;
+      background: var(--orange);
       border-radius: 50%;
       flex-shrink: 0;
     }
@@ -332,6 +338,7 @@
 
     .card-green .status-live {
       color: #0F3F27;
+      background: #C5F0DC;
     }
 
     .card-green:hover .card-cta {
